@@ -38,7 +38,7 @@ The task is episodic, and in order to solve the environment, your agent must get
 ```pip install -r requirements.txt```
 or load the drlnd conda env using the file
 ```drlnd.yml```
-both are located at the root of this repository.
+. Both are located at the root of this repository.
 
 ### Instructions
 
