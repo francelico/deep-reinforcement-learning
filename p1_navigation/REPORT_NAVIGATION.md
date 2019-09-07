@@ -39,7 +39,7 @@ Note that the maximum timestep parameter was not used as the environement stops 
 
 | DQN                                        | Double DQN                         | Dueling DQN                                         |
 | ------------------------------------------ | ---------------------------------- | --------------------------------------------------- |
-| ![double-dqn](report_files/dqn_performance.png)              | ![dqn](report_files/double-dqn.png)      | ![dueling double dqn](report_files/dueling-dqn.png)          |
+| ![double-dqn](report_files/dqn_performance.png)              | ![dqn](report_files/double_dqn.png)      | ![dueling double dqn](report_files/dueling_dqn.png)          |
 
 The Double DQN is the fastest to converge at 493 episodes. The DQN is second at 537 episodes and the Dueling DQN comes last at 573 episodes.
 
