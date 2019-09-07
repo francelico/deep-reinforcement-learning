@@ -7,7 +7,9 @@
 
 ![Trained Agents][image1]
 
-This repository contains material related to Udacity's [Deep Reinforcement Learning Nanodegree](https://www.udacity.com/course/deep-reinforcement-learning-nanodegree--nd893) program.  
+This repository is forked from Udacity's deep-reinforcement-learning repository, accessible here https://github.com/udacity/deep-reinforcement-learning. It will be used to submit projects and assignments.
+
+The original repository contains material related to Udacity's [Deep Reinforcement Learning Nanodegree](https://www.udacity.com/course/deep-reinforcement-learning-nanodegree--nd893) program.  
 
 ## Table of Contents
 
@@ -66,6 +68,8 @@ The labs and projects can be found below.  All of the projects use rich simulati
 
 ## Dependencies
 
+### Full install (Udacity)
+
 To set up your python environment to run the code in this repository, follow the instructions below.
 
 1. Create (and activate) a new environment with Python 3.6.
@@ -100,6 +104,13 @@ python -m ipykernel install --user --name drlnd --display-name "drlnd"
 5. Before running code in a notebook, change the kernel to match the `drlnd` environment by using the drop-down `Kernel` menu. 
 
 ![Kernel][image2]
+
+
+### Environement files
+Alternatively, you can find all python package requirements in the file:
+```requirements.txt```
+The drlnd environment is stored in
+```drlnd.yml```
 
 ## Want to learn more?
 
