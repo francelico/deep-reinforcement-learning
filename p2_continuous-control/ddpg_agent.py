@@ -40,10 +40,18 @@ class Agent():
         self.actor_target = Actor(state_size, action_size, random_seed).to(device)
         self.actor_optimizer = optim.Adam(self.actor_local.parameters(), lr=LR_ACTOR)
 
+        # Make sure the Target Network has the same weight values as the Local Network
+        for target, local in zip(self.actor_target.parameters(), self.actor_local.parameters()):
+            target.data.copy_(local.data)
+
         # Critic Network (w/ Target Network)
         self.critic_local = Critic(state_size, action_size, random_seed).to(device)
         self.critic_target = Critic(state_size, action_size, random_seed).to(device)
         self.critic_optimizer = optim.Adam(self.critic_local.parameters(), lr=LR_CRITIC, weight_decay=WEIGHT_DECAY)
+
+        # Make sure the Target Network has the same weight values as the Local Network
+        for target, local in zip(self.critic_target.parameters(), self.critic_local.parameters()):
+            target.data.copy_(local.data)
 
         # Noise process
         self.noise = OUNoise(action_size, random_seed)
@@ -101,6 +109,7 @@ class Agent():
         # Minimize the loss
         self.critic_optimizer.zero_grad()
         critic_loss.backward()
+        torch.nn.utils.clip_grad_norm(self.critic_local.parameters(), 1)
         self.critic_optimizer.step()
 
         # ---------------------------- update actor ---------------------------- #

@@ -82,6 +82,11 @@ class Critic(nn.Module):
 
     def forward(self, state, action):
         """Build a critic (value) network that maps (state, action) pairs -> Q-values."""
+
+        # Reshape the state to comply with Batch Normalization
+        if state.dim() == 1:
+            state = torch.unsqueeze(state,0)
+
         xs = F.relu(self.fcs1(state))
         xs = self.bn1(xs)
         x = torch.cat((xs, action), dim=1)
