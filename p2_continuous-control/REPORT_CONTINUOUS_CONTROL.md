@@ -2,6 +2,8 @@
 
 TODO: change learning rates
 TODO: rerun training set1 to get results.
+TODO: talk about cliping grad
+TODO: talk about learning every 20 timesteps instead of every timestep, learning from 10 experiences at a time.
 
 ## Framework description
 
