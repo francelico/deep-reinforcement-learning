@@ -1,10 +1,11 @@
 # Navigation Project Report
 
 TODO: change learning rates
+TODO: rerun training set1 to get results.
 
 ## Framework description
 
-* **DDPG**:
+* **DDPG**: DDPG or Deep Deterministic Policy Gradients is a model independent and off-policy actor-critic algorithm that uses deep neural networks to learn policies in high-dimensional, continuous action and state spaces. It consists of two networks. The Actor network is a policy based model that will take the state as input and directly output a policy, as in the optimal stochastic action probability distribution associated to that state. The Critic model is a value based model that has a similar structure to the **DQN framework** it will take the state as input and construct a Q valued function for the action space for that state. In order to deal with instability or divergence of the network weights, this framework is supported by the concepts of **Experience replay** and **Fixed Q-Targets** (by using a local and target network) developed by DeepMind.
 * **OU Noise**:
 
 ## Implementation structure
@@ -37,7 +38,7 @@ Two different sets of hyperparameters were used to train the agents. THey are re
   | Theta_ou                            | 0.15  |
   | Sigma_ou                            | 0.1   |
 
-The training will stop when the maximum number of episodes is reached or when the average score reaches 13.0.
+The training will stop when the maximum number of episodes is reached or when the average score reaches 30.0.
 
 ## Results
 

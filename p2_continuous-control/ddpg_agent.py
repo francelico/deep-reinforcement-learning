@@ -13,9 +13,12 @@ BUFFER_SIZE = int(1e5)  # replay buffer size
 BATCH_SIZE = 128        # minibatch size
 GAMMA = 0.99            # discount factor
 TAU = 1e-3              # for soft update of target parameters
-LR_ACTOR = 1e-4         # learning rate of the actor 
-LR_CRITIC = 1e-3        # learning rate of the critic
+LR_ACTOR = 2e-4         # learning rate of the actor 
+LR_CRITIC = 2e-4        # learning rate of the critic
 WEIGHT_DECAY = 0        # L2 weight decay
+LEARN_EVERY_T = 20        # learning timestep interval
+LEARN_NUM = 10          # number of learning passes
+
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
@@ -59,15 +62,16 @@ class Agent():
         # Replay memory
         self.memory = ReplayBuffer(action_size, BUFFER_SIZE, BATCH_SIZE, random_seed)
     
-    def step(self, state, action, reward, next_state, done):
+    def step(self, state, action, reward, next_state, done, timestep):
         """Save experience in replay memory, and use random sample from buffer to learn."""
         # Save experience / reward
         self.memory.add(state, action, reward, next_state, done)
 
         # Learn, if enough samples are available in memory
-        if len(self.memory) > BATCH_SIZE:
-            experiences = self.memory.sample()
-            self.learn(experiences, GAMMA)
+        if len(self.memory) > BATCH_SIZE and timestep % LEARN_EVERY_T == 0:
+            for i in range(LEARN_NUM):
+                experiences = self.memory.sample()
+                self.learn(experiences, GAMMA)
 
     def act(self, state, add_noise=True):
         """Returns actions for given state as per current policy."""
@@ -109,7 +113,7 @@ class Agent():
         # Minimize the loss
         self.critic_optimizer.zero_grad()
         critic_loss.backward()
-        torch.nn.utils.clip_grad_norm(self.critic_local.parameters(), 1)
+        torch.nn.utils.clip_grad_norm_(self.critic_local.parameters(), 1)
         self.critic_optimizer.step()
 
         # ---------------------------- update actor ---------------------------- #
