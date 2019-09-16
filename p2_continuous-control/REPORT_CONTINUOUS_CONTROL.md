@@ -19,7 +19,7 @@ The project is structured as follows:
     
 ## Hyperparameters
 
-Three different sets of hyperparameters were used to train the agents. They are reported in Table 1 to 3 below. The next section will compare the difference in performance between the three sets of parameters.
+Three different sets of hyperparameters were used to train the agents. They are reported in Table 1 to 3 below. The next section will compare the difference in performance between the three sets of parameters. The parameters in bold are the one that were changed from the previous set.
 
 <ins>Table 1: Training parameters set 1.</ins>
 
@@ -111,4 +111,4 @@ It is to note that the agents performs consistently above 30 when watching the t
 
 ## Further improvements
 
-Further improvements could be taken to increase the learning performance, such as reintroducing a larger size for the first fully connected layer of the models. Additionally, further investigation of the tuning parameters could be conducted to achieve more stable and faster learning rate. Lastly, it would be interesting to reintroduce the concept of the exploration rate with the parameter epsilon. Epsilon would directly affect the magnitude of noise added to the action and will gradually decrease to 0 as training progress. This would maximise the beneficial effect of noise during the early phase of training where the agent needs to explore and eliminate the adverse effect of noise where the agent is nearly trained and close to achieve its goal.
+Further improvements could be taken to increase the learning performance, such as reintroducing a larger size for the first fully connected layer of the models. Additionally, further investigation of the tuning parameters could be conducted to achieve more stable and faster learning rate. Lastly, it would be interesting to reintroduce the concept of the exploration rate with the parameter epsilon. Epsilon would directly affect the magnitude of noise added to the action and will gradually decrease to 0 as training progresses. This would maximise the beneficial effect of noise during the early phase of training where the agent needs to explore and eliminate the adverse effect of noise where the agent is nearly trained and close to achieving its goal.
