@@ -18,7 +18,9 @@ LR_CRITIC = 2e-4        # learning rate of the critic
 WEIGHT_DECAY = 0        # L2 weight decay
 LEARN_EVERY_T = 20        # learning timestep interval
 LEARN_NUM = 10          # number of learning passes
-
+OU_MU = 0
+OU_THETA = 0.15
+OU_SIGMA = 0.1
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
@@ -145,7 +147,7 @@ class Agent():
 class OUNoise:
     """Ornstein-Uhlenbeck process."""
 
-    def __init__(self, size, seed, mu=0., theta=0.15, sigma=0.2):
+    def __init__(self, size, seed, mu=OU_MU, theta=OU_THETA, sigma=OU_SIGMA):
         """Initialize parameters and noise process."""
         self.mu = mu * np.ones(size)
         self.theta = theta
