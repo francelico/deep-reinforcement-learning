@@ -12,14 +12,14 @@ import torch.optim as optim
 BUFFER_SIZE = int(1e6)  # replay buffer size
 BATCH_SIZE = 128        # minibatch size
 GAMMA = 0.99            # discount factor
-TAU = 8e-3 #8e-3 7e-2   # for soft update of target parameters
+TAU = 8e-2 #8e-3 7e-2   # for soft update of target parameters
 LR_ACTOR = 1e-3         # learning rate of the actor
 LR_CRITIC = 1e-3        # learning rate of the critic
 WEIGHT_DECAY = 0        # L2 weight decay
 LEARN_EVERY_T = 1       # learning timestep interval
 LEARN_NUM = 5 #5 #1     # number of learning passes
-EPS_START = 5.0 #5 5.5         # initial value for epsilon in noise decay process in Agent.act()
-EPS_EP_END = 300 #300 200        # episode to end the noise decay process
+EPS_START = 6 #5 5.5         # initial value for epsilon in noise decay process in Agent.act()
+EPS_EP_END = 220 #300 200        # episode to end the noise decay process
 EPS_FINAL = 0.0           # final value for epsilon after decay
 OU_THETA = 0.15         # Ornstein-Uhlenbeck noise parameter, speed of mean reversion
 OU_MU = 0.0
