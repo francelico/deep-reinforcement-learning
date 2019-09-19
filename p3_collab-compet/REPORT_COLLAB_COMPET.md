@@ -83,7 +83,7 @@ Two different sets of hyperparameters were used to train the agents. They are re
   | Learn num                           | 5	|
   | **Epsilon start**                   | 6.0  	|
   | Epsilon final                       | 0.0	|
-  | Episode for epsilon final           | 220  	|
+  | **Episode for epsilon final**       | 220  	|
 
 The training will stop when the maximum number of episodes is reached. The training is considered successful when the average score reaches 0.5.
 
@@ -95,7 +95,22 @@ The training will stop when the maximum number of episodes is reached. The train
 | ------------------------------------------ | ---------------------------------- |
 | ![set-1](report_files/turtle.png)              | ![set-2](report_files/turtle.png)      |
 
-TODO: 
+
+TODO: describe performance
+- ep at which training picks up
+- ep at which performance is max
+- decay
+
+TODO: explain decay
+
+TODO: explain the difference between two sets
+Tau: of soft the update is
+Epsilo start: how aggressive is the exploration initially
+Episode for epsilon final: episode at which exploration ends
+
+TODO: explain the performance
+- turtle: higher peak, slower training, slower decay (?)
+- hare: lower peak, faster training, faster decay (?)
 
 <ins>Table 4: Execution performance for different sets of hyperparameters.</ins>
 
@@ -103,9 +118,9 @@ TODO:
 | ------------------------------------------ | ---------------------------------- |
 | ![set-1](report_files/turtle_exec.png)              | ![set-2](report_files/turtle_exec.png)      |
 
-
+TODO: explain that the performance is still unstable even if moving average is good.
 
 ## Further improvements
 
-TODO: Prioritized experience replay (env where some experiences (i.e. touching the ball, are a lot more valuable and rate than others)
+TODO: Prioritized experience replay (env where some experiences (i.e. touching the ball) are a lot more valuable and rare than others)
 TODO: Stability (systematically explore all sets of hyperparameter to find set that reduces or eliminates instability)
