@@ -1,4 +1,4 @@
-# Navigation Project Report
+# Continuous Control Project Report
 
 ## Framework description
 
